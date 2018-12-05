@@ -1,0 +1,48 @@
+{
+  "name": "@voitanos/jest-preset-spfx",
+  "description": "Jest preset configuration for SharePoint Framework (non-React) projects.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "dependencies": {
+    "@types/jest": "^23.3.10",
+    "identity-obj-proxy": "^3.0.0",
+    "ts-jest": "23.1.4"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.12",
+    "typescript": "2.4.2"
+  },
+  "peerDependencies": {
+    "jest": "^23.6.0"
+  },
+  "scripts": {
+    "build": "tsc -p ./",
+    "postinstall": "node postinstall/index.js"
+  },
+  "keywords": [
+    "jest",
+    "office 365",
+    "office365",
+    "sharepoint framework",
+    "sharepoint",
+    "spfx",
+    "test",
+    "tools"
+  ],
+  "homepage": "https://github.com/Voitanos/jest-preset-spfx",
+  "bugs": {
+    "url": "https://github.com/Voitanos/jest-preset-spfx/issues"
+  },
+  "issues": "https://github.com/Voitanos/jest-preset-spfx/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Voitanos/jest-preset-spfx"
+  },
+  "author": "Andrew Connell <andrew@voitanos.io>",
+  "maintainers": [
+    {
+      "name": "andrewconnell",
+      "email": "andrew@voitanos.io"
+    }
+  ]
+}

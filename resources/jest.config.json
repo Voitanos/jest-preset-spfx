@@ -1,0 +1,4 @@
+{
+  "preset": "jest-preset-spfx",
+  "rootDir": "../src"
+}
