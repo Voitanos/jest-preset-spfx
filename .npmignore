@@ -1,3 +1,7 @@
-/src
+# exclude all typescript files
 **/*.ts
+# except samples
+!examples/*.ts
+
+# exclude package manager lock files
 shrinkwrap.yaml
