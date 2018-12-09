@@ -1,7 +1,7 @@
 {
   "name": "@voitanos/jest-preset-spfx",
   "description": "Jest preset configuration for SharePoint Framework (non-React) projects.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "dependencies": {
     "@types/jest": "^23.3.10",
