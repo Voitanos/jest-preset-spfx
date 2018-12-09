@@ -11,7 +11,7 @@ A [Jest](http://facebook.github.io/jest) preset configuration for [SharePoint Fr
 Install Jest & this preset using your package manager of choice:
 
 ```shell
-npm install jest jest-preset-spfx --save-dev
+npm install jest @voitanos/jest-preset-spfx --save-dev
 ```
 
 This will install `jest`, `@types/jest`, `ts-jest` & `identity-obj-proxy` as dependencies in your project.
@@ -24,28 +24,43 @@ If the configuration file is not present, it will create it. If it is present, i
 
 ## Validating Installation
 
-To validate a successful install, add a new file `SampleTests.spec.ts` to the `./src/webparts` folder with the following code:
+To validate a successful install, do one of the following two things:
 
-```ts
-import 'jest';
+### Option 1: Add example tests
 
-test('1+1 should equal 2', () => {
-  const result = 1+1;
-  expect(result).toBe(2);
-});
-```
+1. Copy the folder **examples** from the installed package (*also found [here in the source repo](https://github.com/Voitanos/jest-preset-spfx/tree/master/examples)*) into the project's **src** folder.
+1. Execute Jest to run the tests:
 
-Execute Jest to run the tests:
+    ```shell
+    npm test
+    ```
 
-```shell
-npm test
-```
+1. Observe four (4) passing tests.
 
-A single should pass.
+### Option 2: Create your own test
+
+1. Add a new file `SampleTests.spec.ts` to the `./src/webparts` folder with the following code:
+
+    ```ts
+    import 'jest';
+
+    test('1+1 should equal 2', () => {
+      const result = 1+1;
+      expect(result).toBe(2);
+    });
+    ```
+
+1. Execute Jest to run the tests:
+
+    ```shell
+    npm test
+    ```
+
+1. Observe a single (1) passing test.
 
 ## How it works
 
-This package contains a [base Jest configuration](https://github.com/Voitanos/jest-preset-spfx/blob/master/jest-preset.json) that your project will inherit. It does this by using the `preset` property in the `jest.config.json` file.
+This package contains a [base Jest configuration](https://github.com/Voitanos/jest-preset-spfx/blob/master/jest-preset.json) that your project will inherit. It does this by using the `preset` property to `@voitanos/jest-preset-spfx` in the `jest.config.json` file.
 
 ## References
 
