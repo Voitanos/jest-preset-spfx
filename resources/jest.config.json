@@ -1,4 +1,4 @@
 {
-  "preset": "jest-preset-spfx",
+  "preset": "@voitanos/jest-preset-spfx",
   "rootDir": "../src"
 }

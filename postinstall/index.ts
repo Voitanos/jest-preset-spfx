@@ -47,8 +47,8 @@ if (fs.existsSync(jestConfigFilePath)) {
   console.log('      .. jest.config.json exists... verifying properties');
   // exists, check the properties are correct
   const jestConfigFile: any = require(jestConfigFilePath);
-  if (!jestConfigFile.preset || jestConfigFile.preset !== 'jest-preset-spfx') {
-    console.warn('ACTION REQUIRED: ensure jest.config.json has "preset": "jest-preset-spfx"');
+  if (!jestConfigFile.preset || jestConfigFile.preset !== '@voitanos/jest-preset-spfx') {
+    console.warn('ACTION REQUIRED: ensure jest.config.json has "preset": "@voitanos/jest-preset-spfx"');
   }
   if (!jestConfigFile.rootDir || jestConfigFile.rootDir !== '../src') {
     console.warn('ACTION REQUIRED: ensure jest.config.json has "rootDir": "../src"');
