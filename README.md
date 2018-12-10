@@ -14,7 +14,7 @@ Install Jest & this preset using your package manager of choice:
 npm install jest @voitanos/jest-preset-spfx --save-dev
 ```
 
-This will install `jest`, `@types/jest`, `ts-jest` & `identity-obj-proxy` as dependencies in your project.
+This will install `@types/jest`, `ts-jest` & `identity-obj-proxy` as dependencies in your project.
 
 The postinstall script will verify you have a `./config/jest.config.json` file and update your `package.json` scripts with two scripts for running Jest tests with this configuration: `test` & `test:watch`.
 
@@ -77,6 +77,13 @@ The following preset is used for SPFx projects:
 
 ```json
 {
+  "collectCoverage": true,
+  "coverageDirectory": "<rootDir>/../temp/test",
+  "coverageReporters": [
+    "json",
+    "lcov",
+    "text-summary"
+  ],
   "moduleFileExtensions": [
     "ts",
     "tsx",
@@ -99,6 +106,7 @@ The following preset is used for SPFx projects:
 
 Explanation of select configuration properties above:
 
+- **collectCoverage**: collects code coverage statistics and generates associated reports in the `./temp/test` folder
 - **moduleNameMapper**:
   - when Jest sees a request for a CSS/SCSS file in the source files, it effectively ignores it using the `identity-obj-proxy` package
   - when jest sees a request for `en-us.json`, it is provided a helper path to find the file
