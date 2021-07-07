@@ -1,5 +1,7 @@
 # jest-preset-spfx
 
+[![npm version](https://badge.fury.io/js/%40voitanos%2Fjest-preset-spfx.png)](https://www.npmjs.com/package/@voitanos/jest-preset-spfx)
+
 A [Jest](http://facebook.github.io/jest) preset configuration for [SharePoint Framework](https://docs.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview) (SPFx) projects.
 
 > **NOTE**: This preset does not contain any support for SPFx projects that utilize React.

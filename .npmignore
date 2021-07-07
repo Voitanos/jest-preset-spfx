@@ -4,4 +4,4 @@
 !examples/*.ts
 
 # exclude package manager lock files
-shrinkwrap.yaml
+package-lock.json
