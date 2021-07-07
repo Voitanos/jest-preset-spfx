@@ -125,7 +125,7 @@ jobs:
       # install dependencies (if restore cached deps failed)
       ######################################################################
       - name: Stamp 'beta' to package version
-        run: node scripts/update-package-version.js $GITHUB_SHA
+        run: node scripts/update-package-version.js "${{ github.event.release.tag_name }}" "${{ github.event.release.name }}"
 
       ######################################################################
       # publish NPM package as preview release
