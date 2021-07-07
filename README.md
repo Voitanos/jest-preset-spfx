@@ -10,19 +10,19 @@ A [Jest](http://facebook.github.io/jest) preset configuration for [SharePoint Fr
 
 ## Installation
 
-Install Jest & this preset using your package manager of choice:
+1. Install Jest & this preset using your package manager of choice:
 
-```shell
-npm install jest @voitanos/jest-preset-spfx --save-dev
-```
+    ```console
+    npm install jest @voitanos/jest-preset-spfx --save-dev
+    ```
 
-This will install `@types/jest`, `ts-jest` & `identity-obj-proxy` as dependencies in your project.
+    This will install `@types/jest`, `ts-jest` & `identity-obj-proxy` as dependencies in your project.
 
-The postinstall script will verify you have a `./config/jest.config.json` file and update your `package.json` scripts with two scripts for running Jest tests with this configuration: `test` & `test:watch`.
+    The postinstall script will verify you have a `./config/jest.config.json` file and update your `package.json` scripts with two scripts for running Jest tests with this configuration: `test` & `test:watch`.
 
-If the configuration file is not present, it will create it. If it is present, it will verify the minimal properties.
+    If the configuration file is not present, it will create it. If it is present, it will verify the minimal properties.
 
-> **NOTE**: A specific version of `ts-jest` is used to support the SPFx supported version of TypeScript as more current versions of `ts-jest` require newer versions of TypeScript that is not yet supported by SPFx.
+    > **NOTE**: A specific version of `ts-jest` is used to support the SPFx supported version of TypeScript as more current versions of `ts-jest` require newer versions of TypeScript that is not yet supported by SPFx.
 
 ## Validating Installation
 
@@ -33,7 +33,7 @@ To validate a successful install, do one of the following two things:
 1. Copy the folder **examples** from the installed package (*also found [here in the source repo](https://github.com/Voitanos/jest-preset-spfx/tree/master/examples)*) into the project's **src** folder.
 1. Execute Jest to run the tests:
 
-    ```shell
+    ```console
     npm test
     ```
 
@@ -43,7 +43,7 @@ To validate a successful install, do one of the following two things:
 
 1. Add a new file `SampleTests.spec.ts` to the `./src/webparts` folder with the following code:
 
-    ```ts
+    ```typescript
     import 'jest';
 
     test('1+1 should equal 2', () => {
@@ -54,7 +54,7 @@ To validate a successful install, do one of the following two things:
 
 1. Execute Jest to run the tests:
 
-    ```shell
+    ```console
     npm test
     ```
 
@@ -77,38 +77,9 @@ Two scripts are added to the `package.json` scripts section:
 
 The following preset is used for SPFx projects:
 
-```json
-{
-  "collectCoverage": true,
-  "coverageDirectory": "<rootDir>/../temp/test",
-  "coverageReporters": [
-    "json",
-    "lcov",
-    "text-summary"
-  ],
-  "moduleFileExtensions": [
-    "ts",
-    "tsx",
-    "js",
-    "json"
-  ],
-  "moduleNameMapper": {
-    "\\.(css|scss)$": "identity-obj-proxy",
-    "^resx-strings/en-us.json": "<rootDir>/node_modules/@microsoft/sp-core-library/lib/resx-strings/en-us.json"
-  },
-  "testMatch": [
-    "**/src/**/*.(spec|test).+(ts|js)?(x)",
-    "**/__tests__/**/*.(spec|test).+(ts|js)?(x)"
-  ],
-  "transform": {
-    "^.+\\.(ts|tsx)$": "ts-jest"
-  }
-}
-```
+Explanation of select configuration properties above: [jest-preset.json](./jest-preset.json)
 
-Explanation of select configuration properties above:
-
-- **collectCoverage**: collects code coverage statistics and generates associated reports in the `./temp/test` folder
+- **collectCoverage**, **coverageDirectory**, **collectCoverageFrom** & **coverageReporters**: collects code coverage statistics and generates associated reports in the `./temp/test` folder
 - **moduleNameMapper**:
   - when Jest sees a request for a CSS/SCSS file in the source files, it effectively ignores it using the `identity-obj-proxy` package
   - when jest sees a request for `en-us.json`, it is provided a helper path to find the file
@@ -121,4 +92,4 @@ Explanation of select configuration properties above:
   - `*.test.tsx`
   - `*.test.js`
   - `*.test.jsx`
-- **transform**: the Jest preprocessor will transpile all TypeScript files to JavaScript before running the tests
+- **transform**: the Jest preprocessor will transpile all TypeScript files to JavaScript before running the tests.

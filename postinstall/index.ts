@@ -35,9 +35,9 @@ const paths = nest.map(m => "..");
 const projectPath = path.resolve(path.join(__dirname, paths.join('/')));
 
 /**
- * 
+ *
  * STEP 1: JEST CONFIG FILE
- * 
+ *
  */
 console.log("INFO: Adding Jest configuration file to: ./config/jest.config.json");
 
@@ -56,7 +56,7 @@ if (fs.existsSync(jestConfigFilePath)) {
 } else {
   // doesn't exist, so copy it in
   console.log('INFO: jest.config.json not found; creating it');
-  
+
   // get path to sample file
   const jestConfigTemplate = path.join(CURR_DIR, '..', 'resources', 'jest.config.json');
   // copy file in
@@ -65,10 +65,10 @@ if (fs.existsSync(jestConfigFilePath)) {
 
 
 /**
- * 
+ *
  * STEP 2: PACKAGE.JSON
  * Check scripts.test property
- * 
+ *
  */
 console.log("INFO: Updating NPM script 'test' to use Jest.");
 
@@ -79,13 +79,7 @@ const packageFile: any = require(packageFilePath);
 if (!packageFile.scripts || !packageFile.scripts.test || packageFile.scripts.test === 'gulp test') {
   console.log('INFO" package.json script/test currently set to default SPFx project; updating to use jest');
 
-  // new script settings:
-  const jestTestScripts: any = {
-    "test": "./node_modules/.bin/jest --config ./config/jest.config.json",
-    "test:watch": "./node_modules/.bin/jest --config ./config/jest.config.json --watchAll",
-  }
-
-  /** update package.json */ 
+  /** update package.json */
 
   // remove current test
   delete packageFile.scripts.test;
