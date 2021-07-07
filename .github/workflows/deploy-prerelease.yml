@@ -5,14 +5,12 @@
 name: Publish prerelease (NPM package publish @next)
 
 on:
-  workflow_dispatch:
-  release:
-    types:
-      - published
+  push:
+    branches:
+      - master
 
 env:
   NODE_VERSION: '14.x'
-
   # NPM_TOKEN: <org.secret>
 
 jobs:
@@ -20,8 +18,8 @@ jobs:
   # build NPM package for pre-release
   ######################################################################
   build:
-    # only run if in our repo & if release = prerelease
-    if: github.repository_owner == 'voitanos' && github.event.release.prerelease
+    # only run if in our repo
+    if: github.repository_owner == 'voitanos'
     runs-on: ubuntu-latest
     steps:
       ######################################################################
@@ -128,10 +126,10 @@ jobs:
           IS_BUILD: 1 # hack to keep package's postinstall script from running on builds
 
       ######################################################################
-      # install dependencies (if restore cached deps failed)
+      # update package name
       ######################################################################
       - name: Stamp 'beta' to package version
-        run: node scripts/update-package-version.js "${{ github.event.release.tag_name }}" "${{ github.event.release.name }}"
+        run: node scripts/update-package-version.js $GITHUB_SHA
 
       ######################################################################
       # publish NPM package as preview release
