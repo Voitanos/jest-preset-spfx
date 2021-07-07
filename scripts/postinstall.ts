@@ -99,3 +99,15 @@ if (!packageFile.scripts || !packageFile.scripts.test || packageFile.scripts.tes
   console.log('INFO: package.json scripts updated for Jest testing');
   console.log('     .. run "npm test" or "npm test:watch" to run Jest tests');
 }
+
+/**
+ *
+ * STEP 3: Install JEST
+ * Install the correct version of JEST
+ *
+ */
+const thisPackageFile: any = require('../package.json');
+const jestVersion = thisPackageFile.peerDependencies.jest;
+
+console.log(`INFO: Install Jest v${jestVersion} by executing the following command in the console:`);
+console.log(`      npm install jest@{jestVersion} --save-dev --save-exact`);

@@ -5,7 +5,7 @@ var path = require("path");
 // load package.json file
 var packageJson = require('../package.json');
 // get arguments for the sha (bbc91a4)
-var commit_sha = "" + process.argv[process.argv.length - 1].substr(0, 8);
+var commit_sha = "" + process.argv[process.argv.length - 1].substr(0, 7);
 // update the version of the package.json file (before publishing)
 packageJson.version += "-beta." + commit_sha;
 console.log('publish version:', packageJson.version);
