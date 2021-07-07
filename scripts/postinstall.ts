@@ -102,12 +102,37 @@ if (!packageFile.scripts || !packageFile.scripts.test || packageFile.scripts.tes
 
 /**
  *
- * STEP 3: Install JEST
+ * STEP 2: TSCONFIG.JSON
+ * Verify @types/jest is present in tsconfig include
+ *
+ */
+console.log("INFO: Ensure tsconfig.json includes '@types/jest' in the `types` property");
+
+const tsconfigFilePath = path.resolve(path.join(projectPath, 'tsconfig.json'));
+
+// check if @types/jest is present in includes
+const tsconfigFile: any = require(packageFilePath);
+if (!(tsconfigFile.compilerOptions.types as string[]).includes('@types/jest')) {
+  console.log('      .. Jest type declarations not present...');
+  // add it
+  (tsconfigFile.compilerOptions.types as string[]).push('@types/jest');
+
+  // save it
+  fs.writeFileSync(tsconfigFilePath, JSON.stringify(tsconfigFile, null, 2));
+
+  console.log('INFO: tsconfig.json updated to include Jest type declarations');
+  console.log('      .. Jest type declarations not present...');
+}
+
+
+/**
+ *
+ * STEP 4: Install JEST
  * Install the correct version of JEST
  *
  */
 const thisPackageFile: any = require('../package.json');
 const jestVersion = thisPackageFile.peerDependencies.jest;
 
-console.log(`INFO: Install Jest v${jestVersion} by executing the following command in the console:`);
-console.log(`      npm install jest@{jestVersion} --save-dev --save-exact`);
+console.log(`ACTION REQUIRED: Install Jest v${jestVersion} by executing the following command in the console:`);
+console.log(`   npm install jest@{jestVersion} --save-dev --save-exact`);
