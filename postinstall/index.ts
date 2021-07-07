@@ -1,5 +1,11 @@
 #!/usr/bin/env node
 
+// bail on postinstall if this is a build
+if (process.env.IS_BUILD) {
+  console.log('skipping POSTINSTALL script');
+  process.exit(1);
+}
+
 /*
 * if jest.config.json not present, add it
 * update package.json with new test script
