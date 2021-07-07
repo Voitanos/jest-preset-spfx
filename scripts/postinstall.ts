@@ -111,7 +111,7 @@ console.log("INFO: Ensure tsconfig.json includes '@types/jest' in the `types` pr
 const tsconfigFilePath = path.resolve(path.join(projectPath, 'tsconfig.json'));
 
 // check if @types/jest is present in includes
-const tsconfigFile: any = require(packageFilePath);
+const tsconfigFile: any = require(tsconfigFilePath);
 if (!(tsconfigFile.compilerOptions.types as string[]).includes('@types/jest')) {
   console.log('      .. Jest type declarations not present...');
   // add it
