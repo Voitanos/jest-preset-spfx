@@ -13,6 +13,8 @@ on:
 env:
   NODE_VERSION: '14.x'
 
+  # NPM_TOKEN: <org.secret>
+
 jobs:
   ######################################################################
   # build NPM package for pre-release
