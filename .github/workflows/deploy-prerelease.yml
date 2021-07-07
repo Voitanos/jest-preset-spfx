@@ -57,6 +57,8 @@ jobs:
         if: steps.node_module_cache.outputs.cache-hit != 'true'
         shell: bash
         run: npm ci
+        env:
+          IS_BUILD: 1 # hack to keep package's postinstall script from running on builds
 
       ######################################################################
       # build package
@@ -120,6 +122,8 @@ jobs:
         if: steps.node_module_cache.outputs.cache-hit != 'true'
         shell: bash
         run: npm ci
+        env:
+          IS_BUILD: 1 # hack to keep package's postinstall script from running on builds
 
       ######################################################################
       # install dependencies (if restore cached deps failed)

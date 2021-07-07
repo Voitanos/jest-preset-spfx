@@ -1,6 +1,14 @@
 #!/usr/bin/env node
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+if (process.env.IS_BUILD) {
+    console.log('skipping POSTINSTALL script');
+    process.exit(1);
+}
+/*
+* if jest.config.json not present, add it
+* update package.json with new test script
+*/
 var fs = require("fs");
 var path = require("path");
 var CURR_DIR = path.resolve(__dirname);
@@ -39,8 +47,8 @@ if (fs.existsSync(jestConfigFilePath)) {
     console.log('      .. jest.config.json exists... verifying properties');
     // exists, check the properties are correct
     var jestConfigFile = require(jestConfigFilePath);
-    if (!jestConfigFile.preset || jestConfigFile.preset !== 'jest-preset-spfx') {
-        console.warn('ACTION REQUIRED: ensure jest.config.json has "preset": "jest-preset-spfx"');
+    if (!jestConfigFile.preset || jestConfigFile.preset !== '@voitanos/jest-preset-spfx') {
+        console.warn('ACTION REQUIRED: ensure jest.config.json has "preset": "@voitanos/jest-preset-spfx"');
     }
     if (!jestConfigFile.rootDir || jestConfigFile.rootDir !== '../src') {
         console.warn('ACTION REQUIRED: ensure jest.config.json has "rootDir": "../src"');
@@ -66,11 +74,6 @@ var packageFilePath = path.resolve(path.join(projectPath, 'package.json'));
 var packageFile = require(packageFilePath);
 if (!packageFile.scripts || !packageFile.scripts.test || packageFile.scripts.test === 'gulp test') {
     console.log('INFO" package.json script/test currently set to default SPFx project; updating to use jest');
-    // new script settings:
-    var jestTestScripts = {
-        "test": "./node_modules/.bin/jest --config ./config/jest.config.json",
-        "test:watch": "./node_modules/.bin/jest --config ./config/jest.config.json --watchAll",
-    };
     /** update package.json */
     // remove current test
     delete packageFile.scripts.test;
