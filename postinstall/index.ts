@@ -3,7 +3,7 @@
 // bail on postinstall if this is a build
 if (process.env.IS_BUILD) {
   console.log('skipping POSTINSTALL script');
-  process.exit(1);
+  process.exit(0);
 }
 
 /*

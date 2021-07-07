@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 if (process.env.IS_BUILD) {
     console.log('skipping POSTINSTALL script');
-    process.exit(1);
+    process.exit(0);
 }
 /*
 * if jest.config.json not present, add it
