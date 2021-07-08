@@ -18,6 +18,7 @@ jobs:
   # build NPM package for pre-release
   ######################################################################
   build:
+    name: Build NPM package
     # only run if in our repo & if [skip-ci] is not in the commit message
     if: github.repository_owner == 'voitanos' && !contains(github.event.head_commit.message,'[skip-ci]')
     runs-on: ubuntu-latest
@@ -82,6 +83,7 @@ jobs:
   # build NPM package for pre-release
   ######################################################################
   publish_to_npm:
+    name: Publish NPM package (@next)
     # only run if in our repo & if [skip-cd] is not in the commit message
     if: github.repository_owner == 'voitanos' && !contains(github.event.head_commit.message,'[skip-cd]')
     needs: build

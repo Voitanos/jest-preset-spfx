@@ -21,6 +21,7 @@ jobs:
   # build NPM package for pre-release
   ######################################################################
   build:
+    name: Build NPM package
     # only run if in our repo
     if: github.repository_owner == 'voitanos' && !github.event.release.prerelease
     runs-on: ubuntu-latest
@@ -85,6 +86,7 @@ jobs:
   # build NPM package for pre-release
   ######################################################################
   publish_to_npm:
+    name: Publish NPM package (@latest)
     # only run if in our repo & if release = prerelease
     if: github.repository_owner == 'voitanos'
     needs: build
