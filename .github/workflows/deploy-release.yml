@@ -1,8 +1,9 @@
 ######################################################
-# Deploy a current prerelease (ie: NPM package publish)
-#   when a release is published
+# Deploy a current new NPM package version
+#    (ie: NPM package publish) when a release is
+#    published
 ######################################################
-name: Publish prerelease (NPM package publish @next)
+name: Publish release (NPM package publish @latest)
 
 on:
   workflow_dispatch:

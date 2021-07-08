@@ -1,6 +1,6 @@
 ######################################################
-# Deploy a current prerelease (ie: NPM package publish)
-#   when a release is published
+# Deploy a prerelease NPM package version
+#    when code pushed to master
 ######################################################
 name: Publish prerelease (NPM package publish @next)
 
