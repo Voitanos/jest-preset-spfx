@@ -34,7 +34,7 @@ if (nmIndex === -1) {
   console.error('ERROR: expected folder \'node_modules\' not found.');
 }
 const nest = nestedDirs.slice(nmIndex);
-if (!nest || nest.length ===0){
+if (!nest || nest.length === 0) {
   console.error('ERROR: unexpected install path.')
 }
 const paths = nest.map(m => "..");
@@ -45,7 +45,8 @@ const projectPath = path.resolve(path.join(__dirname, paths.join('/')));
  * STEP 1: JEST CONFIG FILE
  *
  */
-console.log("INFO: Adding Jest configuration file to: ./config/jest.config.json");
+console.log('JEST PRESET POSTINSTALL STEP 1 of 4...')
+console.log('INFO: Adding Jest configuration file to: ./config/jest.config.json');
 
 const jestConfigFilePath = path.resolve(path.join(projectPath, 'config', 'jest.config.json'));
 // check if jest config file present
@@ -76,7 +77,8 @@ if (fs.existsSync(jestConfigFilePath)) {
  * Check scripts.test property
  *
  */
-console.log("INFO: Updating NPM script 'test' to use Jest.");
+console.log('JEST PRESET POSTINSTALL STEP 2 of 4...')
+console.log('INFO: Updating NPM script \'test\' to use Jest.');
 
 const packageFilePath = path.resolve(path.join(projectPath, 'package.json'));
 
@@ -106,7 +108,8 @@ if (!packageFile.scripts || !packageFile.scripts.test || packageFile.scripts.tes
  * Verify @types/jest is present in tsconfig include
  *
  */
-console.log("INFO: Ensure tsconfig.json includes '@types/jest' in the `types` property");
+console.log('JEST PRESET POSTINSTALL STEP 3 of 4...')
+console.log('INFO: Ensure tsconfig.json includes \'@types/jest\' in the `types` property');
 
 const tsconfigFilePath = path.resolve(path.join(projectPath, 'tsconfig.json'));
 
@@ -121,7 +124,6 @@ if (!(tsconfigFile.compilerOptions.types as string[]).includes('@types/jest')) {
   fs.writeFileSync(tsconfigFilePath, JSON.stringify(tsconfigFile, null, 2));
 
   console.log('INFO: tsconfig.json updated to include Jest type declarations');
-  console.log('      .. Jest type declarations not present...');
 }
 
 
@@ -131,8 +133,10 @@ if (!(tsconfigFile.compilerOptions.types as string[]).includes('@types/jest')) {
  * Install the correct version of JEST
  *
  */
+console.log('JEST PRESET POSTINSTALL STEP 4 of 4...')
+
 const thisPackageFile: any = require('../package.json');
 const jestVersion = thisPackageFile.peerDependencies.jest;
 
 console.log(`ACTION REQUIRED: Install Jest v${jestVersion} by executing the following command in the console:`);
-console.log(`   npm install jest@{jestVersion} --save-dev --save-exact`);
+console.log(`      npm install jest@${jestVersion} --save-dev --save-exact`);
