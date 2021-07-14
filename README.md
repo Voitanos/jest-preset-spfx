@@ -1,6 +1,6 @@
 # jest-preset-spfx
 
-[![npm @latest](https://img.shields.io/npm/v/@voitanos/jest-preset-spfx/latest?style=flat-square)](https://www.npmjs.com/package/@voitanos/jest-preset-spfx) [![npm @next](https://img.shields.io/npm/v/@voitanos/jest-preset-spfx/next?style=flat-square)](https://www.npmjs.com/package/@voitanos/jest-preset-spfx)
+[![npm @latest](https://img.shields.io/npm/v/@voitanos/jest-preset-spfx/latest?style=flat-square)](https://www.npmjs.com/package/@voitanos/jest-preset-spfx)
 
 [![Voitanos on Twitter](https://img.shields.io/badge/Twitter-%40voitanos-blue?style=flat-square)](https://www.twitterl.com/voitanos)
 
@@ -100,7 +100,7 @@ The Jest preset NPM package contains distribution tags that are used to alias sp
 Using the information above, install the specific Jest preset package:
 
 ```console
-npm install @voitanos/jest-preset-spfx@1.2.2 --save-dev --save-exact
+npm install @voitanos/jest-preset-spfx@ts2.9 --save-dev --save-exact
 ```
 
 > **NOTE**: Pay close attention to the console output as you'll likely have at least one additional step (*look for ACTION REQUIRED*). The console will also contain information about changes applied to your project to support tests.
