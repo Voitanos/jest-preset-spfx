@@ -44,7 +44,9 @@
     "**/src/**/*.(spec|test).+(ts|js)?(x)",
     "**/__tests__/**/*.(spec|test).+(ts|js)?(x)"
   ],
-  "testURL": "http://localhost",
+  "testEnvironmentOptions": {
+    "url": "http://www.something.com/test.html"
+  },
   "transform": {
     "^.+\\.(ts|tsx)$": "ts-jest"
   }

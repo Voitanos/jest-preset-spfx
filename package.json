@@ -1,20 +1,20 @@
 {
   "name": "@voitanos/jest-preset-spfx",
   "description": "Jest preset configuration for SharePoint Framework (non-React) projects.",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "license": "MIT",
   "dependencies": {
-    "@types/jest": "26.0.24",
+    "@types/jest": "28.1.4",
     "identity-obj-proxy": "3.0.0",
-    "jest-junit": "12.2.0",
-    "ts-jest": "26.5.6"
+    "jest-junit": "14.0.0",
+    "ts-jest": "28.0.5"
   },
   "devDependencies": {
-    "@types/node": "14.17.5",
-    "typescript": "3.8.3"
+    "@types/node": "16.11.36",
+    "typescript": "4.7.2"
   },
   "peerDependencies": {
-    "jest": "26.6.3"
+    "jest": "28.1.2"
   },
   "scripts": {
     "build": "tsc -p ./",
