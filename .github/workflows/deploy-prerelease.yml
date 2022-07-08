@@ -10,7 +10,7 @@ on:
       - master
 
 env:
-  NODE_VERSION: '14.x'
+  NODE_VERSION: '16.x'
   # NPM_TOKEN: <org.secret>
 
 jobs:
